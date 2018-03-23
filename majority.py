@@ -14,9 +14,9 @@ def pascaline(n):
 #Returns the probability that the majority of the experts are correct
 def probability(c,p):
     output = 0
-    pascal = pascaline(c + 1)
+    pascal = pascaline(c - 1)
     if (c % 2 == 0):
-        limit = int(c/2)
+        limit = int(c/2 + 1)
     else:
         limit = int(c/2 + 0.5)
     for i in range(0,limit):
