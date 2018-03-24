@@ -8,6 +8,7 @@ Created on Fri Mar 23 11:09:49 2018
 from scipy.special import comb
 import math
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 #Returns the probability that the majority of the experts are correct
@@ -18,7 +19,7 @@ def probability(c,p):
         sum += comb(c, r) * p ** r * (1-p)**(c-r)
     return sum
 
-
+#%%
 #1d. Create plots for how the group size and individual competency
 #Graph 1, varying competency with group size 10
 competencies = [0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]
@@ -27,8 +28,8 @@ plt.xlabel("Competency of individual experts")
 plt.ylabel("Probability")
 plt.title("Probability of correct majority by individual competency with group size 10")
 #plt.savefig('plot1.png');
-plt.clf()
-
+#plt.clf()
+#%%
 #Graph 2, varying group size with competency of 0.7
 group_sizes = [x * 10 for x in range(1,11)]
 plt.plot(group_sizes,[probability(s,0.7) for s in group_sizes])
@@ -36,8 +37,14 @@ plt.xlabel("Probability of correct majority by group size")
 plt.ylabel("Probability")
 plt.title("Probability of correct majority by group size with individual probability 0.7")
 #plt.savefig('plot2.png');
-plt.clf()
-
+#plt.clf()
+#%%
 #1e.
 plt.plot(range(0,40),[probability(c,0.6) for c in range(0,40)])
+horizontal_line = np.array([0.89 for i in range(0,40)])
+plt.plot(horizontal_line)
+plt.xlabel("Number of Sudents in the group")
+plt.ylabel("Probability")
+plt.title("Number of students that are needed to be as good as group of doctors")
+plt.savefig('plot3.png')
 plt.show()
