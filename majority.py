@@ -16,9 +16,9 @@ def probability(c,p):
     output = 0
     pascal = pascaline(c - 1)
     if (c % 2 == 0):
-        limit = int(c/2 + 1)
+        limit = int(c/2 - 1)
     else:
-        limit = int(c/2 + 0.5)
+        limit = int(c/2 - 0.5)
     for i in range(0,limit):
         output += pascal[i] * (p ** (c-i) * (1-p) ** i)
     return output
