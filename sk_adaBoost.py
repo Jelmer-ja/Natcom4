@@ -30,8 +30,11 @@ clf_2 = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1),
 clf_1.fit(X_train, y_train)
 clf_2.fit(X_train, y_train)
 
+
+
 print(clf_1.score(X_test, y_test))
 print(clf_2.score(X_test, y_test))
+print(clf_2.feature_importances_)
 
 #%%
 '''
